@@ -43,7 +43,7 @@ const Navigation = () => {
             </Button>
             <Button 
               variant="ghost"
-              onClick={() => window.open('https://www.instagram.com/hannahmamabear?igsh=bWt4ZDBoaW5xdjZz&utm_source=qr', '_blank')}
+              onClick={() => window.open('https://www.instagram.com/hannahmamabear?igsh=bWt4ZDBoaW5xdjZz&utm_source=chatgpt.com', '_blank')}
               className="text-foreground hover:text-primary transition-colors"
             >
               Instagram

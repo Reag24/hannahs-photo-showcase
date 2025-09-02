@@ -3,7 +3,7 @@ import { useState } from "react";
 const Gallery = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<string | null>(null);
   
-  // Hannah's actual artwork - expanding collection
+  // Hannah's complete artwork collection - all 16 pieces!
   const artworks = [
     { id: 1, src: "/lovable-uploads/a3b4f469-4779-43f4-92a8-d6eb1146d4ec.png", title: "Portrait with Glasses", category: "Portrait" },
     { id: 2, src: "/lovable-uploads/353c1b0e-51e9-4115-aafb-1377c80f0986.png", title: "Mystical Wolf", category: "Nature" },
@@ -15,6 +15,12 @@ const Gallery = () => {
     { id: 8, src: "/lovable-uploads/784943df-49f3-4fbc-bf33-2a5d696abb4a.png", title: "Cute Bookmarks", category: "Illustration" },
     { id: 9, src: "/lovable-uploads/d440df1d-c051-4908-a92d-e22a9d22241c.png", title: "Cherry Portrait Studies", category: "Portrait" },
     { id: 10, src: "/lovable-uploads/b7fcb37b-0eaa-451d-9dd0-01f445c3a1b3.png", title: "Cherry Girl", category: "Portrait" },
+    { id: 11, src: "/lovable-uploads/6dcb4087-62b5-4526-867a-94184431c797.png", title: "Pink Sunglasses Portrait", category: "Portrait" },
+    { id: 12, src: "/lovable-uploads/990cd230-8d80-4597-8d79-993d467cd31c.png", title: "Sloth Companion", category: "Character" },
+    { id: 13, src: "/lovable-uploads/a5f852f4-d7c9-4fc1-95c3-ee8b39bc7bfb.png", title: "Valentine's Love Collection", category: "Portrait" },
+    { id: 14, src: "/lovable-uploads/b27a9108-3600-4d28-a128-b21211bef71a.png", title: "Kiwi Girls", category: "Character" },
+    { id: 15, src: "/lovable-uploads/03933223-8d2f-4df7-82b8-107ea35e791a.png", title: "Mystical Lamb", category: "Illustration" },
+    { id: 16, src: "/lovable-uploads/e650cda3-afcd-4a4d-98df-18f3046bffab.png", title: "Hannah with Pink Florals", category: "Artist Photo" },
   ];
 
   return (
@@ -53,13 +59,11 @@ const Gallery = () => {
           ))}
         </div>
         
-        {artworks.length < 16 && (
-          <div className="text-center mt-12">
-            <p className="text-muted-foreground">
-              More artwork coming soon... ({artworks.length}/16 pieces)
-            </p>
-          </div>
-        )}
+        <div className="text-center mt-12">
+          <p className="text-muted-foreground mb-4">
+            ✨ Complete collection: All 16 artworks now displayed! ✨
+          </p>
+        </div>
       </div>
       
       {/* Modal for enlarged view */}

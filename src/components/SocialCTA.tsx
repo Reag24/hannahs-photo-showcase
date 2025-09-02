@@ -22,7 +22,7 @@ const SocialCTA = () => {
               variant="default" 
               size="lg"
               className="social-glow group px-12 py-8 text-xl font-medium"
-              onClick={() => window.open('https://www.instagram.com/hannahmamabear?igsh=bWt4ZDBoaW5xdjZz&utm_source=qr', '_blank')}
+              onClick={() => window.open('https://www.instagram.com/hannahmamabear?igsh=bWt4ZDBoaW5xdjZz&utm_source=chatgpt.com', '_blank')}
             >
               <Instagram className="mr-4 h-6 w-6 group-hover:scale-110 transition-transform" />
               @hannahmamabear

@@ -44,7 +44,7 @@ const Hero = () => {
               variant="default" 
               size="lg"
               className="social-glow group px-8 py-6 text-lg font-medium"
-              onClick={() => window.open('https://www.instagram.com/hannahmamabear?igsh=bWt4ZDBoaW5xdjZz&utm_source=qr', '_blank')}
+              onClick={() => window.open('https://www.instagram.com/hannahmamabear?igsh=bWt4ZDBoaW5xdjZz&utm_source=chatgpt.com', '_blank')}
             >
               <Instagram className="mr-3 h-5 w-5 group-hover:scale-110 transition-transform" />
               Follow on Instagram
