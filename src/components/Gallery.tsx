@@ -3,13 +3,13 @@ import { useState } from "react";
 const Gallery = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<string | null>(null);
   
-  // Hannah's actual artwork from uploads
+  // Hannah's actual artwork - now with the properly uploaded images
   const artworks = [
-    { id: 1, src: "/lovable-uploads/dced9dcd-d088-407d-aadf-40195fde4e18.png", title: "Portrait Study", category: "Portrait" },
-    { id: 2, src: "/lovable-uploads/045a5cac-b62a-4456-8131-8cb893a8f715.png", title: "Mystical Wolf", category: "Nature" },
-    { id: 3, src: "/lovable-uploads/52e07bbd-bc0e-4926-8d93-3fc418699348.png", title: "Character with Bird", category: "Character" },
-    { id: 4, src: "/lovable-uploads/79b9f60e-398a-46aa-9359-3b6742451fa2.png", title: "Ethereal Portrait", category: "Portrait" },
-    { id: 5, src: "/lovable-uploads/b058869a-abd9-4797-803d-3439207644b8.png", title: "Sweet Pup", category: "Pet" },
+    { id: 1, src: "/lovable-uploads/a3b4f469-4779-43f4-92a8-d6eb1146d4ec.png", title: "Portrait with Glasses", category: "Portrait" },
+    { id: 2, src: "/lovable-uploads/353c1b0e-51e9-4115-aafb-1377c80f0986.png", title: "Mystical Wolf", category: "Nature" },
+    { id: 3, src: "/lovable-uploads/b6a14c87-14cb-4825-8d10-b739846cc958.png", title: "Character with Bird", category: "Character" },
+    { id: 4, src: "/lovable-uploads/de6d4236-1add-482a-8b2c-0cfb2d97a031.png", title: "Ethereal Rose Portrait", category: "Portrait" },
+    { id: 5, src: "/lovable-uploads/593fbb64-51e0-49a3-89ad-815d3de331e4.png", title: "Sweet Pup", category: "Pet" },
   ];
 
   return (
