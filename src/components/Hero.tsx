@@ -12,29 +12,41 @@ const Hero = () => {
         }}
       />
       
-      {/* Animated starfield */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(50)].map((_, i) => (
+      {/* Moving through space starfield */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none perspective-1000">
+        {[...Array(80)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-primary/40 rounded-full animate-pulse star-float"
+            className="absolute w-1 h-1 bg-primary/60 rounded-full star-float"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${3 + Math.random() * 4}s`
+              animationDelay: `${Math.random() * 4}s`,
+              animationDuration: `${2 + Math.random() * 3}s`
             }}
           />
         ))}
-        {[...Array(30)].map((_, i) => (
+        {[...Array(40)].map((_, i) => (
+          <div
+            key={`zoom-${i}`}
+            className="absolute w-1.5 h-1.5 bg-accent/50 rounded-full star-drift"
+            style={{
+              left: `${45 + Math.random() * 10}%`,
+              top: `${45 + Math.random() * 10}%`,
+              animationDelay: `${Math.random() * 6}s`,
+              animationDuration: `${4 + Math.random() * 4}s`
+            }}
+          />
+        ))}
+        {[...Array(20)].map((_, i) => (
           <div
             key={`large-${i}`}
-            className="absolute w-2 h-2 bg-accent/30 rounded-full animate-pulse star-drift"
+            className="absolute w-2 h-2 bg-secondary/40 rounded-full star-drift"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${5 + Math.random() * 3}s`
+              left: `${40 + Math.random() * 20}%`,
+              top: `${40 + Math.random() * 20}%`,
+              animationDelay: `${Math.random() * 8}s`,
+              animationDuration: `${6 + Math.random() * 2}s`
             }}
           />
         ))}
@@ -46,7 +58,7 @@ const Hero = () => {
             <span className="gradient-text">Hannah's Art</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground font-light leading-relaxed max-w-2xl mx-auto">
+          <p className="text-3xl md:text-5xl lg:text-6xl text-muted-foreground font-light leading-relaxed max-w-4xl mx-auto">
             Girl With Chill Vibes & Cool Art
           </p>
           

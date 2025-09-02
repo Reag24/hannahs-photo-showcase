@@ -166,29 +166,18 @@
     transform: translateY(-2px);
   }
 
-  /* Animated starfield */
+  /* Animated starfield - moving through space */
   .star-float {
-    animation: star-float 6s ease-in-out infinite;
+    animation: star-warp 4s linear infinite;
   }
 
   .star-drift {
-    animation: star-drift 8s linear infinite;
+    animation: star-zoom 6s linear infinite;
   }
 
-  @keyframes star-float {
-    0%, 100% {
-      transform: translateY(0px) translateX(0px);
-      opacity: 0.3;
-    }
-    50% {
-      transform: translateY(-20px) translateX(10px);
-      opacity: 1;
-    }
-  }
-
-  @keyframes star-drift {
+  @keyframes star-warp {
     0% {
-      transform: translateX(-10px) translateY(100vh);
+      transform: translateZ(-1000px) translateX(-50px);
       opacity: 0;
     }
     10% {
@@ -198,7 +187,24 @@
       opacity: 1;
     }
     100% {
-      transform: translateX(10px) translateY(-10px);
+      transform: translateZ(1000px) translateX(50px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes star-zoom {
+    0% {
+      transform: translate(-50%, -50%) scale(0) translateZ(-2000px);
+      opacity: 0;
+    }
+    5% {
+      opacity: 1;
+    }
+    95% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(3) translateZ(1000px);
       opacity: 0;
     }
   }
