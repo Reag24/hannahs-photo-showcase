@@ -26,30 +26,48 @@ const Hero = () => {
             }}
           />
         ))}
-        {[...Array(40)].map((_, i) => (
-          <div
-            key={`zoom-${i}`}
-            className="absolute w-1.5 h-1.5 bg-accent/50 rounded-full star-drift"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 6}s`,
-              animationDuration: `${4 + Math.random() * 4}s`
-            }}
-          />
-        ))}
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={`large-${i}`}
-            className="absolute w-2 h-2 bg-secondary/40 rounded-full star-drift"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 8}s`,
-              animationDuration: `${6 + Math.random() * 2}s`
-            }}
-          />
-        ))}
+        {[...Array(40)].map((_, i) => {
+          // Keep larger stars away from center text area (30% to 70% horizontally, 20% to 80% vertically)
+          let left, top;
+          do {
+            left = Math.random() * 100;
+            top = Math.random() * 100;
+          } while (left > 25 && left < 75 && top > 15 && top < 85);
+          
+          return (
+            <div
+              key={`zoom-${i}`}
+              className="absolute w-1.5 h-1.5 bg-accent/50 rounded-full star-drift"
+              style={{
+                left: `${left}%`,
+                top: `${top}%`,
+                animationDelay: `${Math.random() * 6}s`,
+                animationDuration: `${4 + Math.random() * 4}s`
+              }}
+            />
+          );
+        })}
+        {[...Array(20)].map((_, i) => {
+          // Keep largest stars even further from center
+          let left, top;
+          do {
+            left = Math.random() * 100;
+            top = Math.random() * 100;
+          } while (left > 20 && left < 80 && top > 10 && top < 90);
+          
+          return (
+            <div
+              key={`large-${i}`}
+              className="absolute w-2 h-2 bg-secondary/40 rounded-full star-drift"
+              style={{
+                left: `${left}%`,
+                top: `${top}%`,
+                animationDelay: `${Math.random() * 8}s`,
+                animationDuration: `${6 + Math.random() * 2}s`
+              }}
+            />
+          );
+        })}
       </div>
       
       <div className="container mx-auto px-6 text-center relative z-10">

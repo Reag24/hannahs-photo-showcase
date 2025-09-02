@@ -34,23 +34,28 @@ const Gallery = () => {
         });
       },
       {
-        threshold: 0.2,
-        rootMargin: '0px 0px -100px 0px'
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
       }
     );
 
-    // Use setTimeout to ensure DOM is ready
-    const timer = setTimeout(() => {
+    // Observe artwork items when component mounts
+    const observeElements = () => {
       const artworkElements = document.querySelectorAll('.artwork-item');
-      artworkElements.forEach((el) => observer.observe(el));
-    }, 100);
+      artworkElements.forEach((el) => {
+        el.classList.remove('in-view'); // Ensure they start hidden
+        observer.observe(el);
+      });
+    };
+
+    // Small delay to ensure elements are in DOM
+    const timer = setTimeout(observeElements, 200);
 
     return () => {
       clearTimeout(timer);
-      const artworkElements = document.querySelectorAll('.artwork-item');
-      artworkElements.forEach((el) => observer.unobserve(el));
+      observer.disconnect();
     };
-  }, [artworks]);
+  }, []);
 
   return (
     <section className="py-20 px-6" id="gallery">

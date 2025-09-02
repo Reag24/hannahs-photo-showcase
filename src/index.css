@@ -223,8 +223,8 @@
   /* Scroll-triggered animations */
   .artwork-item {
     opacity: 0;
-    transform: translateY(60px) scale(0.9);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(40px) scale(0.95);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .artwork-item.in-view {
@@ -232,14 +232,8 @@
     transform: translateY(0) scale(1);
   }
 
-  /* Add staggered delay for each item */
-  .artwork-item:nth-child(1) { transition-delay: 0.1s; }
-  .artwork-item:nth-child(2) { transition-delay: 0.2s; }
-  .artwork-item:nth-child(3) { transition-delay: 0.3s; }
-  .artwork-item:nth-child(4) { transition-delay: 0.1s; }
-  .artwork-item:nth-child(5) { transition-delay: 0.2s; }
-  .artwork-item:nth-child(6) { transition-delay: 0.3s; }
-  .artwork-item:nth-child(7) { transition-delay: 0.1s; }
-  .artwork-item:nth-child(8) { transition-delay: 0.2s; }
-  .artwork-item:nth-child(9) { transition-delay: 0.3s; }
+  /* Staggered animation delays */
+  .artwork-item:nth-child(3n+1) { transition-delay: 0.1s; }
+  .artwork-item:nth-child(3n+2) { transition-delay: 0.2s; }
+  .artwork-item:nth-child(3n+3) { transition-delay: 0.3s; }
 }
