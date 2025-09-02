@@ -4,29 +4,6 @@ const Gallery = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<string | null>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      }
-    );
-
-    const artworkElements = document.querySelectorAll('.artwork-item');
-    artworkElements.forEach((el) => observer.observe(el));
-
-    return () => {
-      artworkElements.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
-  
   // Hannah's complete artwork collection - all 16 pieces!
   const artworks = [
     { id: 1, src: "/lovable-uploads/a3b4f469-4779-43f4-92a8-d6eb1146d4ec.png", title: "Portrait with Glasses", category: "Portrait" },
@@ -46,6 +23,34 @@ const Gallery = () => {
     { id: 15, src: "/lovable-uploads/03933223-8d2f-4df7-82b8-107ea35e791a.png", title: "Mystical Lamb", category: "Illustration" },
     { id: 16, src: "/lovable-uploads/e650cda3-afcd-4a4d-98df-18f3046bffab.png", title: "Hannah with Pink Florals", category: "Artist Photo" },
   ];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+      }
+    );
+
+    // Use setTimeout to ensure DOM is ready
+    const timer = setTimeout(() => {
+      const artworkElements = document.querySelectorAll('.artwork-item');
+      artworkElements.forEach((el) => observer.observe(el));
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      const artworkElements = document.querySelectorAll('.artwork-item');
+      artworkElements.forEach((el) => observer.unobserve(el));
+    };
+  }, [artworks]);
 
   return (
     <section className="py-20 px-6" id="gallery">

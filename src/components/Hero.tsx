@@ -31,8 +31,8 @@ const Hero = () => {
             key={`zoom-${i}`}
             className="absolute w-1.5 h-1.5 bg-accent/50 rounded-full star-drift"
             style={{
-              left: `${45 + Math.random() * 10}%`,
-              top: `${45 + Math.random() * 10}%`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 6}s`,
               animationDuration: `${4 + Math.random() * 4}s`
             }}
@@ -43,8 +43,8 @@ const Hero = () => {
             key={`large-${i}`}
             className="absolute w-2 h-2 bg-secondary/40 rounded-full star-drift"
             style={{
-              left: `${40 + Math.random() * 20}%`,
-              top: `${40 + Math.random() * 20}%`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 8}s`,
               animationDuration: `${6 + Math.random() * 2}s`
             }}
