@@ -12,17 +12,29 @@ const Hero = () => {
         }}
       />
       
-      {/* Floating particles */}
+      {/* Animated starfield */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(50)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-primary/30 rounded-full animate-pulse"
+            className="absolute w-1 h-1 bg-primary/40 rounded-full animate-pulse star-float"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`
+              animationDuration: `${3 + Math.random() * 4}s`
+            }}
+          />
+        ))}
+        {[...Array(30)].map((_, i) => (
+          <div
+            key={`large-${i}`}
+            className="absolute w-2 h-2 bg-accent/30 rounded-full animate-pulse star-drift"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${5 + Math.random() * 3}s`
             }}
           />
         ))}
@@ -30,13 +42,12 @@ const Hero = () => {
       
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="space-y-8 max-w-4xl mx-auto">
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tight">
-            <span className="gradient-text">Hannah</span>
+          <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-4">
+            <span className="gradient-text">Hannah's Art</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground font-light leading-relaxed max-w-2xl mx-auto">
-            Visual artist creating expressive portraits, character art, and illustrations 
-            that capture the beauty and emotion of every subject
+            Girl With Chill Vibes & Cool Art
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">

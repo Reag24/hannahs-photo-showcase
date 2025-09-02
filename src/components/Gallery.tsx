@@ -1,7 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const Gallery = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<string | null>(null);
+  const galleryRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    const artworkElements = document.querySelectorAll('.artwork-item');
+    artworkElements.forEach((el) => observer.observe(el));
+
+    return () => {
+      artworkElements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
   
   // Hannah's complete artwork collection - all 16 pieces!
   const artworks = [
@@ -36,11 +60,12 @@ const Gallery = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {artworks.map((artwork) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto" ref={galleryRef}>
+          {artworks.map((artwork, index) => (
             <div
               key={artwork.id}
-              className="artwork-hover cursor-pointer group"
+              className="artwork-item artwork-hover cursor-pointer group"
+              style={{ animationDelay: `${index * 0.1}s` }}
               onClick={() => setSelectedArtwork(artwork.src)}
             >
               <div className="relative overflow-hidden rounded-lg bg-card">
@@ -58,13 +83,7 @@ const Gallery = () => {
             </div>
           ))}
         </div>
-        
-        <div className="text-center mt-12">
-          <p className="text-muted-foreground mb-4">
-            ✨ Complete collection: All 16 artworks now displayed! ✨
-          </p>
         </div>
-      </div>
       
       {/* Modal for enlarged view */}
       {selectedArtwork && (
